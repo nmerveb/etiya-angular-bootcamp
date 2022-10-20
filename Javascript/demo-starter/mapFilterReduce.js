@@ -10,7 +10,7 @@ let filtrelenmisUrunler = urunler.filter((urun) => {
   return urun.fiyat > 160;
 });
 
-console.log(filtrelenmisUrunler);
+//console.log(filtrelenmisUrunler);
 
 //map => forEach ile ayni, tek farki map yeni bir array olusturur ve doner.
 let maplanmisArray = urunler.map((urun) => {
@@ -21,7 +21,7 @@ let maplanmisArray = urunler.map((urun) => {
     rate: urun.rate,
   };
 });
-console.log(maplanmisArray);
+//console.log(maplanmisArray);
 
 //Ex.
 let mapExample = urunler.map((urun) => {
@@ -30,7 +30,7 @@ let mapExample = urunler.map((urun) => {
     : urun.fiyat;
   return `${urun.ad} ${urun.fiyat}`;
 });
-console.log(mapExample);
+//console.log(mapExample);
 
 //ex.2
 let mapExample2 = urunler.map((urun) => {
@@ -43,7 +43,7 @@ let mapExample2 = urunler.map((urun) => {
     ad: urun.ad,
   };
 });
-console.log(mapExample2);
+//console.log(mapExample2);
 
 let cart = [
   { id: 1, productName: "product 1", quantity: 3, unitPrice: 3000 },
@@ -57,3 +57,17 @@ cart.forEach((item) => {
   total.totalPorductCount += item.quantity;
 });
 console.log(total);
+
+//reduce fonksiyonu
+//arr func'in aldigi iki parametre de birer objedir. acc toplam deger tutar, ikinci param arrayin bir item'idir.
+let cartTotal = cart.reduce(
+  (acc, cartItem) => acc + cartItem.quantity * cartItem.unitPrice,
+  0 // acc'in initial degerini tutar.
+);
+console.log(cartTotal);
+
+let cartQuantityTotal = cart.reduce(
+  (acc, cartItem) => acc + cartItem.quantity,
+  0
+);
+console.log(cartQuantityTotal);
