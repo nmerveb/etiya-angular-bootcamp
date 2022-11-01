@@ -1,0 +1,19 @@
+<!--directive *ngFor="let item of categories(dolasilacak dizi adi)"-->
+<!--*ngIf="categories.length > 3"-->
+<!-- Bir elementte ikiden fazla directive kullanamayiz-->
+<!--Bir element icin birden fazla directive kullanmak istersek ng-template, ng-container kullanabiliriz.-->
+<ul>
+  <ng-template ngFor let-item [ngForOf]="categories">
+    <li *ngIf="item.length > 3">
+      {{ item }}
+    </li>
+  </ng-template>
+</ul>
+
+<ng-container *ngIf="language == 'tr'; else enMessage">
+  <div>Merhaba</div>
+</ng-container>
+
+<ng-template #enMessage>
+  <div>Hello</div>
+</ng-template>
