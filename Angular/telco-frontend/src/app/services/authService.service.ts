@@ -11,13 +11,8 @@ export class AuthService {
   controllerUrl = `${environment.apiUrl}/auth/login`;
   constructor(private httpClient: HttpClient) {}
 
-  login(user: User): string {
+  login(user: User): Observable<any> {
     console.log('test3');
-    let temp = '';
-    this.httpClient.post(this.controllerUrl, user).subscribe((response) => {
-      console.log('test');
-      console.log(response);
-    });
-    return temp;
+    return this.httpClient.post(this.controllerUrl, user);
   }
 }
