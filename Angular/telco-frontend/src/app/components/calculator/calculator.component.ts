@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
   constructor() {
-    console.log("Constructor oldugu icin ngOnInit'ten once calisir");
+    //console.log("Constructor oldugu icin ngOnInit'ten once calisir");
   }
 
   //comp initialie edildiginde calisan fonk'tur.
   ngOnInit(): void {
-    console.log('ngOnInit works!');
+    //console.log('ngOnInit works!');
   }
 }
