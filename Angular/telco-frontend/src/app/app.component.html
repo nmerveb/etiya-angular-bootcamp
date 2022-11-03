@@ -7,8 +7,8 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<h3>{{ "Merhaba Angular" }}</h3>
 <!-- 1-10 arası sayıları listeye yazdır..
+  <h3>{{ "Merhaba Angular" }}</h3>
   <ul>
     <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
   </ul>
@@ -37,5 +37,6 @@
 
  <button (click)="btnClick()">Tikla</button>
  <app-calculator></app-calculator>
+ <app-listview></app-listview>
 -->
-<app-listview></app-listview>
+<router-outlet> </router-outlet>

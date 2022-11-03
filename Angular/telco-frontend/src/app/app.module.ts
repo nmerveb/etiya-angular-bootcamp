@@ -10,6 +10,8 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { CreateFakeArrayPipe } from './pipes/create-fake-array.pipe';
 import { SplitPipe } from './pipes/split.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 //declarations ---> Module ait componentleri cagirir.
 //imports  ---> Modulun kullandigi modulleri tutar.
@@ -21,8 +23,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     CalculatorComponent,
     ListviewComponent,
+    HomeComponent,
+    LoginComponent,
     CreateFakeArrayPipe,
     SplitPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

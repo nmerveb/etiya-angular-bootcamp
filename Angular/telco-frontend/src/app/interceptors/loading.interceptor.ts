@@ -17,18 +17,12 @@ export class LoadingInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log('Interceptor calisti...');
-    this.loadingService.startLoading();
-    console.log('start calisti');
-    //bir istek bittiginde onu anlamak icin rxjs fonksiyonu devreye girer. rxjs finalize
+    this.loadingService.startLoading(); //bir istek bittiginde onu anlamak icin rxjs fonksiyonu devreye girer. rxjs finalize
     return next.handle(request).pipe(
       finalize(() => {
-        console.log('istek bitti.');
-
         setTimeout(() => {
           this.loadingService.stopLoading();
         }, 3000);
-        console.log('stop calisti');
       })
     );
   }

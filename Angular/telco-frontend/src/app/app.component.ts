@@ -15,7 +15,7 @@ import { LoadingService } from './services/loading.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'telco-frontend';
+  title = 'telco-frontend12';
   isLoading: boolean = false;
   today: Date = new Date();
 
@@ -24,14 +24,15 @@ export class AppComponent implements OnInit {
     this.subscribeToLoading();
   }
 
-  sumOfNumbers = (number1: number, number2: number): number => {
-    let result = number1 + number2;
-    //console.log(result);
+  sumOfNumbers(a: number, b: number) {
+    let result = a + b;
+    // console.log(result);
     return result;
-  };
-  btnClick = () => {
-    alert('Butona tiklandi');
-  };
+  }
+
+  btnClick() {
+    alert('Butona tıklandı');
+  }
 
   subscribeToLoading() {
     this.loadingService.isLoadingSubject.subscribe((isLoading) => {

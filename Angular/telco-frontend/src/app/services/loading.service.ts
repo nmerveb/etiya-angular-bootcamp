@@ -12,7 +12,7 @@ export class LoadingService {
 
   startLoading() {
     this.pendingRequestCount++;
-    this.isLoadingSubject.next(this.pendingRequestCount < 0);
+    this.isLoadingSubject.next(this.pendingRequestCount > 0);
   }
   stopLoading() {
     this.pendingRequestCount--;

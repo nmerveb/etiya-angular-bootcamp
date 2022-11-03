@@ -15,7 +15,7 @@
   </ng-template>
 </ul>
 
-<!-- Reactive Form  -->
+<!-- Reactive Form -->
 <h1>Form - Add</h1>
 <form [formGroup]="categoryAddForm" (submit)="add()">
   <p>{{ error }}</p>
@@ -24,10 +24,10 @@
   <button type="submit">Add</button>
 </form>
 
-<!-- ngModel Form  -->
+<!-- ngModel Form -->
 <h1>Form - Delete</h1>
 Silinecek olan id: {{ categoryIdToDelete }}
 <div>
   <input type="text" placeholder="id" [(ngModel)]="categoryIdToDelete" />
-  <button (click)="delete()">Sil</button>
+  <button class="btn" (click)="delete()">Sil</button>
 </div>
