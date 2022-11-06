@@ -37,13 +37,14 @@ export class AppComponent implements OnInit {
   subscribeToLoading() {
     this.loadingService.isLoadingSubject.subscribe((isLoading) => {
       this.isLoading = isLoading;
-      console.log(`Is Loading değeri: ${isLoading}`);
+      console.log(`Servisten donen loading sonucu: ${isLoading}`);
     });
   }
 
   startLoading() {
     this.loadingService.startLoading();
   }
+
   stopLoading() {
     this.loadingService.stopLoading();
   }

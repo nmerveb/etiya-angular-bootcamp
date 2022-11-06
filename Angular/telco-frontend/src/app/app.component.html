@@ -6,37 +6,40 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<!-- 1-10 arası sayıları listeye yazdır..
-  <h3>{{ "Merhaba Angular" }}</h3>
-  <ul>
-    <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
-  </ul>
+<!--
+  <h3>{{ today | date: "dd-MM-yyyy" }}</h3>
 -->
+<h3>{{ "Merhaba Angular" | split: "," }}</h3>
+
+<div class="spinner-container" *ngIf="isLoading">
+  <div class="overlay show"></div>
+  <div class="spinner show">
+    <div class="loader"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+<!-- 1-10 arası sayıları listeye yazdır.
+  <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
+  .-->
+<ul>
+  <li *ngFor="let i of 'halit,anıl,burak,burak,büşranur,doğacan' | split: ','">
+    {{ i }}
+  </li>
+</ul>
 <!--ts kodunu direkt html icine bu sekilde yazabiliriz-->
 <!--
+    <button (click)="startLoading()">Start Loading</button>
+    <button (click)="stopLoading()">Stop Loading</button>
 
-  <div class="spinner-container" *ngIf="isLoading">
-    <div class="overlay show"></div>
-    <div class="spinner show">
-      <div class="loader"></div>
-      <p>Loading...</p>
-    </div>
-  </div>
-  <button (click)="startLoading()">Start Loading</button>
-  <button (click)="stopLoading()">Stop Loading</button>
+  <h3>{{ 4 + 4 }}</h3>
+  // ts kodu icine yazdigimiz bir degiskeni html icinde bu sekilde gosterebiliriz data binding
+  <h3>{{ title }}</h3>
+  <h3>{{ sumOfNumbers(3, 5) }}</h3>
+  <button (click)="btnClick()">Tikla</button>
+  <app-calculator></app-calculator>
 -->
 
-<!--
-<h3>{{ 4 + 4 }}</h3>
+<app-listview></app-listview>
 
- // ts kodu icine yazdigimiz bir degiskeni html icinde bu sekilde gosterebiliriz data binding
- <h3>{{ title }}</h3>
-
- <h3>{{ sumOfNumbers(3, 5) }}</h3>
-
- <button (click)="btnClick()">Tikla</button>
- <app-calculator></app-calculator>
- <app-listview></app-listview>
--->
 <router-outlet> </router-outlet>

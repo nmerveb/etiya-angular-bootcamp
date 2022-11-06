@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'createFakeArray',
+  name: 'createFakeArray', //pipe'i cagiracagimiz isim
 })
 export class CreateFakeArrayPipe implements PipeTransform {
   transform(value: number): number[] {

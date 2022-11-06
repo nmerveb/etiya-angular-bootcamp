@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'split',
 })
 export class SplitPipe implements PipeTransform {
-  // uyguladığım metinde operatöre göre split yap geriye array olarak elemanları dön
+  //elemanlari istenilen sekle gore split edip array olarak geri doner.
   // "halit,anıl,burak,burak,büşranur,doğacan"
   // ["halit","anıl","burak","burak","büşranur"]
   transform(value: string, operator: string): string[] {
