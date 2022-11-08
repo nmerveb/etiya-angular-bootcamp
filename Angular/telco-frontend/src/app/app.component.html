@@ -9,6 +9,7 @@
 <!--
   <h3>{{ today | date: "dd-MM-yyyy" }}</h3>
 -->
+<!--
 <h3>{{ "Merhaba Angular" | split: "," }}</h3>
 
 <div class="spinner-container" *ngIf="isLoading">
@@ -21,14 +22,13 @@
 
 <!-- 1-10 arası sayıları listeye yazdır.
   <li *ngFor="let i of 10 | createFakeArray">{{ i }}</li>
-  .-->
+
 <ul>
   <li *ngFor="let i of 'halit,anıl,burak,burak,büşranur,doğacan' | split: ','">
     {{ i }}
   </li>
 </ul>
-<!--ts kodunu direkt html icine bu sekilde yazabiliriz-->
-<!--
+<!--ts kodunu direkt html icine bu sekilde yazabiliriz
     <button (click)="startLoading()">Start Loading</button>
     <button (click)="stopLoading()">Stop Loading</button>
 
@@ -38,8 +38,8 @@
   <h3>{{ sumOfNumbers(3, 5) }}</h3>
   <button (click)="btnClick()">Tikla</button>
   <app-calculator></app-calculator>
--->
 
-<app-listview></app-listview>
+  <app-listview></app-listview>
+-->
 
 <router-outlet> </router-outlet>

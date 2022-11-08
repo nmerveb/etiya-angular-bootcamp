@@ -27,7 +27,6 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     CreateFakeArrayPipe,
     SplitPipe,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
