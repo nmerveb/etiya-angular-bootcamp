@@ -5,13 +5,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
-import { ListviewComponent } from './components/listview/listview.component';
+import { ServiceListComponent } from './components/service-list/service-list.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { CreateFakeArrayPipe } from './pipes/create-fake-array.pipe';
 import { SplitPipe } from './pipes/split.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+import { FilterServicePipe } from './pipes/filter-service.pipe';
 
 //declarations ---> Module ait componentleri cagirir.
 //imports  ---> Modulun kullandigi modulleri tutar.
@@ -22,11 +27,12 @@ import { HomeComponent } from './pages/home/home.component';
   declarations: [
     AppComponent,
     CalculatorComponent,
-    ListviewComponent,
+    ServiceListComponent,
     HomeComponent,
     LoginComponent,
     CreateFakeArrayPipe,
     SplitPipe,
+    FilterServicePipe,
   ],
   imports: [
     BrowserModule,
@@ -34,10 +40,22 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-left',
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
   exports: [],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

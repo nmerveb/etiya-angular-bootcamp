@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ListviewComponent } from './listview.component';
+import { ListviewComponent } from './service-list.component';
 
 describe('ListviewComponent', () => {
   let component: ListviewComponent;
@@ -11,9 +11,8 @@ describe('ListviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListviewComponent ]
-    })
-    .compileComponents();
+      declarations: [ListviewComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
