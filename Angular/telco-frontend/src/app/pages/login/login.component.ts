@@ -37,16 +37,21 @@ export class LoginComponent implements OnInit {
       this.toastr.error('Lutfen tum alanlari kontrol ediniz');
       return;
     }
-    //todo: authService login cagir.
     this.authService.login(this.loginForm.value).subscribe({
       next: (response) => {
         this.localstorageService.setItem('token', response.access_token);
-        this.loginForm.reset();
+        console.log(this.loginForm.value);
+        this.authService.emitOnLoginEvent(
+          `Hosgeldiniz  ${this.loginForm.value.userName}`
+        );
         this.router.navigateByUrl('/home');
       },
       error: (errResp) => {
         this.toastr.error(errResp.error.message);
       },
+      //event complete oldugu icin bir kez calisir.
+      // complete: () => {
+      // },
     });
   }
 }

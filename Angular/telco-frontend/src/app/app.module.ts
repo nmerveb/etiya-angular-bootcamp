@@ -17,6 +17,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FilterServicePipe } from './pipes/filter-service.pipe';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { OverlayTitleComponent } from './components/overlay-title/overlay-title.component';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducer';
+import { AppStoreState } from './store/app.state';
 
 //declarations ---> Module ait componentleri cagirir.
 //imports  ---> Modulun kullandigi modulleri tutar.
@@ -33,6 +38,8 @@ import { FilterServicePipe } from './pipes/filter-service.pipe';
     CreateFakeArrayPipe,
     SplitPipe,
     FilterServicePipe,
+    NavbarComponent,
+    OverlayTitleComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,7 @@ import { FilterServicePipe } from './pipes/filter-service.pipe';
         },
       },
     }),
+    StoreModule.forRoot<AppStoreState>(appReducers),
   ],
   exports: [],
   providers: [
